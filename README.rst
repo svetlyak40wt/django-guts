@@ -1,7 +1,7 @@
 Introduction
 ============
 
-This is a "just for fun" project, created to show my django_ projects guts. It allows to browse source code of all ``INSTALLED_APPS``.
+This is a "just for fun" project, created to show my django_ projects guts. It allows to browse source code of all ``INSTALLED_APPS``. Here is example_ installation.
 
 Dependencies
 ------------
@@ -26,3 +26,4 @@ Installation
 
 .. _django: http://djangoproject.org
 .. _Pygments: http://pygments.org
+.. _example: http://svetlyak.ru/guts/gallery/admin.py
