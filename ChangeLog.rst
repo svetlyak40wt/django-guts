@@ -4,4 +4,4 @@ ChangeLog
 0.1.0
 -----
 
-* Initial commit.
+* First version with simple templates and pygments support.

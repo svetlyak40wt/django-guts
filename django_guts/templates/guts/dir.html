@@ -1,0 +1,14 @@
+{% extends 'guts/base.html' %}
+
+{% block content %}
+    <ul>
+        {% for item in files %}
+            {% if item.is_dir %}
+                <li class="dir"><a href="{% url app-guts app cwd item.name %}/">{{ item.name }}</a> (dir)</li>
+            {% else %}
+                <li><a href="{% url app-guts app cwd item.name %}">{{ item.name }}</a></li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+{% endblock %}
+

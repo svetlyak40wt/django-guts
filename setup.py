@@ -1,11 +1,9 @@
-import os
-import sys
 from setuptools import setup, find_packages
 
 setup(
     name = 'django-guts',
     version = '0.1.0',
-    description = '''Template for my django applications.''',
+    description = '''Funny application to show sources of your Django project.''',
     keywords = 'django apps',
     license = 'New BSD License',
     author = 'Alexander Artemenko',

@@ -1,0 +1,11 @@
+{% extends 'guts/base.html' %}
+
+{% block content %}
+    {% if highlighted %}
+        <style>{{ hl_styles }}</style>
+        {{ highlighted|safe }}
+    {% else %}
+        <pre><code>{{ source }}</code></pre>
+    {% endif %}
+{% endblock %}
+

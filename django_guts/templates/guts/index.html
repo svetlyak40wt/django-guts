@@ -1,0 +1,9 @@
+{% extends 'guts/base.html' %}
+
+{% block content %}
+    <ul>
+        {% for app in apps %}
+            <li><a href="{% url app-guts app %}/">{{ app }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}
