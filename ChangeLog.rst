@@ -1,6 +1,11 @@
 ChangeLog
 =========
 
+0.1.2
+-----
+
+* Return 404 for ignored file.
+
 0.1.1
 -----
 
