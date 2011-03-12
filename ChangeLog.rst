@@ -1,6 +1,12 @@
 ChangeLog
 =========
 
+0.1.1
+-----
+
+* Security hole, allowing to read any file, was fixed.
+* Return 404 for non existent files.
+
 0.1.0
 -----
 

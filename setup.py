@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name = 'django-guts',
-    version = '0.1.0',
+    version = '0.1.1',
     description = '''Funny application to show sources of your Django project.''',
     keywords = 'django apps',
     license = 'New BSD License',
