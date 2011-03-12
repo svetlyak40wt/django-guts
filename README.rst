@@ -19,7 +19,7 @@ Installation
 
 * Add these optional variables to the settings.py::
 
-        GUTS_IGNORE = (r'^\..*\.swp$', r'^.*\.pyc$', r'^.*\.pyo$')
+        GUTS_IGNORE = (r'\..*\.swp', r'.*\.pyc', r'.*\.pyo')
         GUTS_HL_EXTENSIONS = ('py', 'html', 'htm')
 
 * Restart server and point your browser to ``http://yourproject.com/guts/``.

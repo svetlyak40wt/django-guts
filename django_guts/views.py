@@ -7,7 +7,7 @@ from django.utils.importlib import import_module
 from django.conf import settings
 from django.http import HttpResponse, Http404
 
-DEFAULT_IGNORE = (r'^\..*\.swp$', r'^.*\.pyc$', r'^.*\.pyo$')
+DEFAULT_IGNORE = (r'\..*\.swp', r'.*\.pyc', r'.*\.pyo')
 DEFAULT_HL_EXTENSIONS = ('py', 'html', 'htm')
 
 def apps(request):
@@ -31,19 +31,19 @@ def app_guts(request, app, cwd = '/', leaf = ''):
     full_path = full_path.replace(os.path.pardir, '')
     full_path = os.path.abspath(full_path)
 
-    if not os.path.exists(full_path):
+    ignore_list = getattr(settings, 'GUTS_IGNORE', DEFAULT_IGNORE)
+    ignore_list = [re.compile('^%s$' % item) for item in ignore_list]
+
+    def ignored(name):
+        for rule in ignore_list:
+            if rule.match(name):
+                return True
+        return False
+
+    if not os.path.exists(full_path) or ignored(leaf):
         raise Http404()
 
     if os.path.isdir(full_path):
-        ignore_list = getattr(settings, 'GUTS_IGNORE', DEFAULT_IGNORE)
-        ignore_list = [re.compile(item) for item in ignore_list]
-
-        def ignored(name):
-            for rule in ignore_list:
-                if rule.match(name):
-                    return True
-            return False
-
         files = os.listdir(full_path)
         files = (name for name in files if not ignored(name))
         files = (
