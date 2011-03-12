@@ -1,7 +1,7 @@
 Introduction
 ============
 
-This is a "just for fun" project, created to show my django_ projects guts. It allows to browse source code os all ``INSTALLED_APPS``.
+This is a "just for fun" project, created to show my django_ projects guts. It allows to browse source code of all ``INSTALLED_APPS``.
 
 Dependencies
 ------------
