@@ -5,7 +5,7 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.utils.importlib import import_module
 from django.conf import settings
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 
 DEFAULT_IGNORE = (r'^\..*\.swp$', r'^.*\.pyc$', r'^.*\.pyo$')
 DEFAULT_HL_EXTENSIONS = ('py', 'html', 'htm')
@@ -30,6 +30,9 @@ def app_guts(request, app, cwd = '/', leaf = ''):
     full_path = os.path.join(mod_dir, '.' + cwd, leaf)
     full_path = full_path.replace(os.path.pardir, '')
     full_path = os.path.abspath(full_path)
+
+    if not os.path.exists(full_path):
+        raise Http404()
 
     if os.path.isdir(full_path):
         ignore_list = getattr(settings, 'GUTS_IGNORE', DEFAULT_IGNORE)
