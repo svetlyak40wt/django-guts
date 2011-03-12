@@ -26,9 +26,10 @@ def app_guts(request, app, cwd = '/', leaf = ''):
     mod = import_module(app)
 
     mod_dir = os.path.dirname(mod.__file__)
-    full_path = os.path.abspath(
-        os.path.join(mod_dir, '.' + cwd, leaf)
-    )
+
+    full_path = os.path.join(mod_dir, '.' + cwd, leaf)
+    full_path = full_path.replace(os.path.pardir, '')
+    full_path = os.path.abspath(full_path)
 
     if os.path.isdir(full_path):
         ignore_list = getattr(settings, 'GUTS_IGNORE', DEFAULT_IGNORE)
