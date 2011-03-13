@@ -16,7 +16,7 @@ def apps(request):
         'guts/index.html',
         dict(
             title='Apps',
-            apps=apps,
+            apps=sorted(apps),
         ),
         context_instance = RequestContext(request),
     )
