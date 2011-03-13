@@ -30,6 +30,7 @@ def app_guts(request, app, cwd = '/', leaf = ''):
     full_path = os.path.join(mod_dir, '.' + cwd, leaf)
     full_path = full_path.replace(os.path.pardir, '')
     full_path = os.path.abspath(full_path)
+    rel_path = os.path.relpath(full_path, mod_dir)
 
     ignore_list = getattr(settings, 'GUTS_IGNORE', DEFAULT_IGNORE)
     ignore_list = [re.compile('^%s$' % item) for item in ignore_list]
@@ -55,9 +56,12 @@ def app_guts(request, app, cwd = '/', leaf = ''):
         return render_to_response(
             'guts/dir.html',
             dict(
-                title=app,
+                title=os.path.join(app, rel_path) + os.path.sep,
                 app=app,
                 cwd=cwd,
+                leaf=leaf,
+                rel_path=rel_path,
+                full_path=full_path,
                 files=files,
             ),
             context_instance = RequestContext(request),
@@ -85,7 +89,12 @@ def app_guts(request, app, cwd = '/', leaf = ''):
             return render_to_response(
                 'guts/source.html',
                 dict(
-                    title=full_path,
+                    title=os.path.join(app, rel_path),
+                    app=app,
+                    cwd=cwd,
+                    leaf=leaf,
+                    rel_path=rel_path,
+                    full_path=full_path,
                     source=source,
                     highlighted=highlighted,
                     hl_styles=hl_styles,
