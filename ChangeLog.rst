@@ -1,6 +1,11 @@
 ChangeLog
 =========
 
+0.1.6
+-----
+
+* Added a link to the parent directory.
+
 0.1.5
 -----
 
