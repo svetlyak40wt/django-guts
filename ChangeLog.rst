@@ -1,6 +1,12 @@
 ChangeLog
 =========
 
+0.1.5
+-----
+
+* Replace os.path.relpath with custom code, because it absent in Python2.5.
+* Add 'parent' context variable.
+
 0.1.4
 -----
 
