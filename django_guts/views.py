@@ -56,7 +56,7 @@ def app_guts(request, app, cwd = '/', leaf = ''):
         return render_to_response(
             'guts/dir.html',
             dict(
-                title=os.path.join(app, rel_path) + os.path.sep,
+                title=os.path.normpath(os.path.join(app, rel_path)) + os.path.sep,
                 app=app,
                 cwd=cwd,
                 leaf=leaf,
