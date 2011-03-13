@@ -1,6 +1,12 @@
 ChangeLog
 =========
 
+0.1.4
+-----
+
+* Directory path normalized for 'title' context variable, to remove /./ component.
+* UTF-8 charset in example template.
+
 0.1.3
 -----
 
