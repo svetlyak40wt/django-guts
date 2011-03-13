@@ -30,7 +30,7 @@ def app_guts(request, app, cwd = '/', leaf = ''):
     full_path = os.path.join(mod_dir, '.' + cwd, leaf)
     full_path = full_path.replace(os.path.pardir, '')
     full_path = os.path.abspath(full_path)
-    rel_path = os.path.relpath(full_path, mod_dir)
+    rel_path = full_path[len(mod_dir) + 1:]
 
     ignore_list = getattr(settings, 'GUTS_IGNORE', DEFAULT_IGNORE)
     ignore_list = [re.compile('^%s$' % item) for item in ignore_list]
