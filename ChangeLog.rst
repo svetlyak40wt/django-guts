@@ -1,6 +1,12 @@
 ChangeLog
 =========
 
+0.1.3
+-----
+
+* Sorted app list.
+* Additional context variables like app, cwd, leaf, rel_path and full path in templates.
+
 0.1.2
 -----
 
