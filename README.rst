@@ -27,3 +27,9 @@ Installation
 .. _django: http://djangoproject.org
 .. _Pygments: http://pygments.org
 .. _example: http://svetlyak.ru/guts/gallery/admin.py
+
+
+.. image:: https://d2weczhvl823v0.cloudfront.net/svetlyak40wt/django-guts/trend.png
+   :alt: Bitdeli badge
+   :target: https://bitdeli.com/free
+
